@@ -18,4 +18,14 @@ module.exports = (app) => {
       res.status(422).send(err);
     }
   });
+
+  app.delete("/api/products/:id", async (req, res) => {
+    try {
+      await Product.findOneAndRemove({ _id: req.params.id });
+
+      res.send(this.props);
+    } catch (err) {
+      res.status(422).send(err);
+    }
+  });
 };

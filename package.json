@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "prestart": "yarn cache clean && yarn install",
     "start": "nodemon index.js"
   },
   "dependencies": {
