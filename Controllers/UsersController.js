@@ -2,7 +2,13 @@ const { model } = require("mongoose");
 
 const User = model("user");
 
+const { verifyUser } = require("../authenticate");
+
 module.exports = (app) => {
+  app.get("/api/users/me", verifyUser, (req, res, next) => {
+    res.send(req.user);
+  });
+
   app.get("/api/users/:id", async (req, res) => {
     const user = await User.findOne({ _id: req.params.id });
     res.send(user);
