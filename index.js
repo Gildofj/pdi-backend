@@ -48,6 +48,7 @@ app.use(express.json());
 // Models
 require("./models/user");
 require("./models/product");
+require("./models/company");
 
 // Auth
 require("./strategies/JwtStrategy");
