@@ -6,9 +6,17 @@ const Product = model("product");
 
 module.exports = {
   list: () => productsRepository.list(),
-  insert: async (json) => {
-    const product = new Product(json);
-    await productsRepository.insert(product);
+  insertOrUpdate: async (json) => {
+    const product =
+      typeof json === typeof new Product() ? json : new Product(json);
+    await productsRepository.insertOrUpdate(product);
   },
   remove: async (id) => productsRepository.remove(id),
+  updateList: async (arrayJson) => {
+    await Promisse.all(
+      arrayJson.map(
+        async (json) => await this.insertOrUpdate(new Product(json)),
+      ),
+    );
+  },
 };
