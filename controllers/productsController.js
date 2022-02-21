@@ -8,8 +8,16 @@ module.exports = (app) => {
 
   app.post("/api/products", async (req, res) => {
     try {
-      await productsService.insert(req.body);
+      await productsService.insertOrUpdate(req.body);
       res.send(this.props);
+    } catch (err) {
+      res.status(422).send(err);
+    }
+  });
+
+  app.put("/api/products", async (req, res) => {
+    try {
+      await productsService.updateList(req.body);
     } catch (err) {
       res.status(422).send(err);
     }
