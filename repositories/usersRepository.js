@@ -11,9 +11,6 @@ module.exports = {
   },
 
   update: async (id, user) => {
-    await User.findOneAndUpdate({
-      _id: id,
-      ...user,
-    }).exec();
+    await User.findOneAndUpdate({ _id: id }, { ...user }).exec();
   },
 };
