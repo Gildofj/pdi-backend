@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2022",                                 
+    "lib": ["ES6"],                                    
+    "module": "commonjs",                               
+    "rootDir": "./",                                     
+    "typeRoots": [
+      "./node_modules/@types",
+      "./Interfaces/@types"
+    ],                                                  
+    "resolveJsonModule": true,                            
+    "allowJs": true,                                    
+     "outDir": "./dist",                                  
+    "removeComments": true,                              
+    "esModuleInterop": true,                            
+    "forceConsistentCasingInFileNames": true,           
+    "strict": false,                                     
+    "skipLibCheck": true,
+    "paths": {
+      "@interfaces/*": ["./Interfaces/*"]
+    }
+  }
+}

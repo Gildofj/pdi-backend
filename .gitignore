@@ -1,7 +1,2 @@
-node_modules/
-.vscode/
-.history/
-
-yarn-error.log
-yarn.lock
-.tool-versions
+node_modules
+.history
